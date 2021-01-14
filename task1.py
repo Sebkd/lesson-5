@@ -4,7 +4,7 @@
 Об окончании ввода данных свидетельствует пустая строка.
 '''
 import os.path
-#C:\Users\sebkd\PycharmProjects\lesson-5\
+
 if os.path.isfile(r'text.txt'):
     os.remove('text.txt')
 with open('text.txt', 'a+') as f_obj:
@@ -13,6 +13,6 @@ with open('text.txt', 'a+') as f_obj:
             break
         else:
             continue
-    f_obj.seek(0)
+    f_obj.seek (0)
     for line in f_obj:
         print(line)
