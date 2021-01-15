@@ -13,5 +13,19 @@
 [{"firm_1": 5000, "firm_2": 3000, "firm_3": 1000}, {"average_profit": 2000}]
 Подсказка: использовать менеджеры контекста.
 '''
-import os.path
+import json
 
+with open(r'text7.txt', encoding = 'utf-8') as f_obj:
+    f_obj.seek(0)
+    average_profit, count = 0, 0
+    average_dict, my_dict = {}, {}
+    for line in f_obj:
+        difference = float(line.split()[2]) - float(line.split()[3])
+        if (difference):
+            count += 1
+            average_profit += difference
+        my_dict[line.split()[0]] = difference
+    average_dict['average_profit'] = round(average_profit / count, 2)
+    print(f'{[my_dict, average_dict]}')
+with open(r'text7.json', 'a+', encoding = 'utf-8') as f_obj:
+    json.dump([my_dict, average_dict], f_obj)

@@ -5,7 +5,7 @@
 Выполнить подсчет средней величины дохода сотрудников.
 '''
 
-import os.path
+
 print(f'Фамилии сотрудников, зарплата которых больше 20 000 руб:')
 with open(r'salary.txt', 'a+', encoding = 'utf-8') as f_obj:
     f_obj.seek(0)
