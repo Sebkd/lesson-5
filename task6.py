@@ -14,4 +14,25 @@
 '''
 import os.path
 
-with open(r'te.txt', 'a+', encoding = 'utf-8') as f_obj:
+def the_sum_item(array):
+    the_sum = 0
+    for number in array.split ()[1:]:
+        x_number = '0'
+        for count in range (len (number)):
+            if not number[count].isdigit () or number[count] == "-":
+                continue
+            else:
+                x_number = ''.join (x_number + number[count])
+        the_sum += int (x_number)
+    return the_sum
+
+
+with open(r'text6.txt', encoding = 'utf-8') as f_obj:
+    f_obj.seek (0)
+    my_list = {}
+    for line in f_obj:
+        my_list[line.split()[0]] = the_sum_item(line)
+    print(my_list)
+
+
+
