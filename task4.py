@@ -11,7 +11,15 @@ Four — 4
 '''
 import os.path
 
-with open(r'text4-1.txt', encoding = 'utf-8') as f_obj:
-    f_obj.seek(0)
-    for line in f_obj:
-        print (line.split ()[0])
+if os.path.isfile(r'text4-2.txt'):
+    os.remove('text4-2.txt')
+
+my_translator = {'One': 'Один',
+                 'Two' : 'Два',
+                 'Three': 'Три',
+                 'Four': 'Четыре'}
+with open(r'text4-2.txt', 'a+', encoding = 'utf-8') as f_obj_write:
+    with open(r'text4-1.txt', encoding = 'utf-8') as f_obj:
+        f_obj.seek(0)
+        for line in f_obj:
+            f_obj_write.write(''.join([my_translator[line.split()[0]], line.strip()[-4:], '\n']))
