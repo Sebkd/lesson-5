@@ -14,6 +14,7 @@
 '''
 import os.path
 
+
 def the_sum_item(array):
     the_sum = 0
     for number in array.split ()[1:]:
