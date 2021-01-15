@@ -29,10 +29,10 @@ def the_sum_item(array):
 
 with open(r'text6.txt', encoding = 'utf-8') as f_obj:
     f_obj.seek (0)
+    for line in f_obj:
+        print(line.strip())
+    f_obj.seek (0)
     my_list = {}
     for line in f_obj:
         my_list[line.split()[0]] = the_sum_item(line)
     print(my_list)
-
-
-
